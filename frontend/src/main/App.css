@@ -1,0 +1,58 @@
+:root{
+    --logo-height:100px;
+    --header-height:100px;
+    --aside-width:255px;
+    --footer-height:40px;
+    --menu-top-height: 100px;
+}
+
+*{
+    font-family: "Montserrat",sans-serif;
+}
+.app{
+    margin: 0;
+    display: grid;
+    grid-template-columns: var(--aside-width) 1fr;
+    grid-template-rows: 
+        var(--header-height)
+        1fr
+        var(--footer-height);
+    grid-template-areas: 
+        "logo header"
+        "menu content"
+        "menu footer";
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+aside.logo{
+    grid-area: logo
+}
+header.header{
+    grid-area: header
+}
+aside.menu-area{
+    grid-area: menu
+}
+aside.content{
+    grid-area: content;
+}
+footer.footer{
+    grid-area: footer;
+}
+
+@media(max-width: 500px){
+    .app{
+        grid-template-rows: 
+            var(--header-height)
+            var(--menu-top-height)
+            1fr
+            var(--footer-height);
+        grid-template-columns: var(--aside-width);
+        grid-template-areas: 
+            "logo logo"
+            "menu menu"
+            "content content"
+            "footer footer";
+
+    }
+}
